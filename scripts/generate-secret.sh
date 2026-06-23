@@ -10,8 +10,11 @@ fi
 
 domain="$1"
 admin_token="$(openssl rand -base64 32 | tr -d '\n')"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_dir="$(cd "${script_dir}/.." && pwd)"
+secret_file="${repo_dir}/overlays/prod/secret.yaml"
 
-cat > /home/cosmin/passwd/overlays/prod/secret.yaml <<EOF
+cat > "${secret_file}" <<EOF
 apiVersion: v1
 kind: Secret
 metadata:
@@ -27,5 +30,5 @@ stringData:
   TZ: "Europe/Bucharest"
 EOF
 
-echo "Generated /home/cosmin/passwd/overlays/prod/secret.yaml"
+echo "Generated ${secret_file}"
 echo "Admin token: ${admin_token}"
