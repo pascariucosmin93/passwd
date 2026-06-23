@@ -5,6 +5,7 @@ metadata:
   namespace: vaultwarden
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    lbipam.cilium.io/ips: 10.10.2.53
 spec:
   ingressClassName: cilium
   tls:
