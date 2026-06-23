@@ -5,4 +5,4 @@ resources:
   - secret.yaml
 images:
   - name: ghcr.io/pascariucosmin93/passwd
-    newTag: 263f18f0320a2b7d3377dc373735a77333d290e7
+    newTag: a73b2d00c3d27d94cbb32121b0d05a04bc96d137
