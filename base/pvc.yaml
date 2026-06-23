@@ -5,9 +5,8 @@ metadata:
   namespace: vaultwarden
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 5Gi
-  storageClassName: standard
-
+  storageClassName: nfs-csi

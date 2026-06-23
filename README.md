@@ -76,4 +76,4 @@ Argo trebuie configurat sa urmareasca:
 - manifestele presupun `ingressClassName: nginx`
 - manifestele presupun `cert-manager` cu `letsencrypt-prod`
 - service-ul `vaultwarden` cere IP-ul `10.10.2.51` din pool-ul Cilium LoadBalancer
-- daca in cluster ai alt `StorageClass`, schimba `storageClassName` in PVC
+- PVC-ul foloseste `storageClassName: nfs-csi`
