@@ -1,0 +1,27 @@
+name: passwd-validate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Generate CI secret manifest
+        run: cp overlays/prod/secret.example.yaml overlays/prod/secret.yaml
+
+      - name: Validate Docker build
+        run: docker build -t passwd-ci:${GITHUB_SHA} .
+
+      - name: Validate Kubernetes manifests
+        run: kubectl kustomize overlays/prod > /tmp/passwd-rendered.yaml
+
+      - name: Ensure rendered output exists
+        run: test -s /tmp/passwd-rendered.yaml
