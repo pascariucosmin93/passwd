@@ -5,11 +5,8 @@ metadata:
   namespace: vaultwarden
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
 spec:
-  ingressClassName: nginx
+  ingressClassName: cilium
   tls:
     - hosts:
         - passwd.cosmin-lab.com
@@ -25,4 +22,3 @@ spec:
                 name: vaultwarden
                 port:
                   number: 80
-

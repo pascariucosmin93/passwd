@@ -24,7 +24,7 @@ type: Opaque
 stringData:
   DOMAIN: "https://${domain}"
   ADMIN_TOKEN: "${admin_token}"
-  SIGNUPS_ALLOWED: "false"
+  SIGNUPS_ALLOWED: "true"
   WEBSOCKET_ENABLED: "true"
   ROCKET_PORT: "80"
   TZ: "Europe/Bucharest"
