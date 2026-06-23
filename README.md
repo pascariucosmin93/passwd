@@ -5,6 +5,7 @@ Password manager local bazat pe Vaultwarden, pregatit pentru:
 - build si push imagine Docker in `ghcr.io`
 - deploy prin Argo CD din acest repo
 - acces web pe `https://passwd.cosmin-lab.com`
+- LoadBalancer fix pe `10.10.2.51`
 
 ## Structura
 
@@ -74,4 +75,5 @@ Argo trebuie configurat sa urmareasca:
 
 - manifestele presupun `ingressClassName: nginx`
 - manifestele presupun `cert-manager` cu `letsencrypt-prod`
+- service-ul `vaultwarden` cere IP-ul `10.10.2.51` din pool-ul Cilium LoadBalancer
 - daca in cluster ai alt `StorageClass`, schimba `storageClassName` in PVC
